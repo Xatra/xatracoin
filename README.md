@@ -3,7 +3,7 @@
 XatraCoin
 ===========================
 
-Xatra Coin is a POS CiPher-Based Blockchain
+Xatra Coin is a Hyrbid POS/POW CiPher-Based Cryptocurrency
 
 Features:
 * Symbol: XTR
