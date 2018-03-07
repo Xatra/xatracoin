@@ -1115,7 +1115,7 @@ int64_t GetProofOfWorkReward(int64_t nPowHeight, int64_t nFees)
 	{
 		float reward = (100 - ceil(nPowHeight / 1440) * 6.6);
 		reward = reward < 5 ? 5 : reward;
-    	nSubsidy = reward * COIN;
+    	nSubsidy = (reward * 10) * (COIN / 10);
 	}
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfWorkReward() : create=%s nSubsidy=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
@@ -1814,7 +1814,8 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
 
     if (IsProofOfWork())
     {
-        int64_t nReward = GetProofOfWorkReward(GetPowHeight(pindex), nFees);
+		int precisionFix = GetPowHeight(pindex) > 9000 ? 0 : 1000;
+        int64_t nReward = GetProofOfWorkReward(GetPowHeight(pindex), nFees) + precisionFix;
         // Check coinbase reward
         if (vtx[0].GetValueOut() > nReward)
             return DoS(50, error("ConnectBlock() : coinbase reward exceeded (actual=%"PRId64" vs calculated=%"PRId64")",
