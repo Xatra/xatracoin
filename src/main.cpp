@@ -1814,7 +1814,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
 
     if (IsProofOfWork())
     {
-		int precisionFix = GetPowHeight(pindex) > 9000 ? 0 : 1000;
+		int precisionFix = GetPowHeight(pindex) > 9000 ? 0 : 2000;
         int64_t nReward = GetProofOfWorkReward(GetPowHeight(pindex), nFees) + precisionFix;
         // Check coinbase reward
         if (vtx[0].GetValueOut() > nReward)
