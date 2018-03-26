@@ -1104,22 +1104,18 @@ static CBigNum GetProofOfStakeLimit(int nHeight)
 }
 
 // miner's coin base reward
-int64_t GetProofOfWorkReward(int64_t nPowHeight, int64_t nFees)
+int64_t GetProofOfWorkReward(int64_t nTotalHeight, int64_t nFees)
 {
 	int64_t nSubsidy = 10 * COIN; //Miner reward
 	if(nBestHeight == 0)
     {
     	nSubsidy = 7000000 * COIN; //Total premine coin
     }
-	else if (nPowHeight < 29000)
+	else if (nTotalHeight < 41800)
 	{
-		float reward = (100 - ceil(nPowHeight / 1440) * 6.6);
+		float reward = (100 - ceil(nTotalHeight / 1440) * 6.6);
 		reward = reward < 5 ? 5 : reward;
     	nSubsidy = (reward * 10) * (COIN / 10);
-	}
-	else if (nPowHeight < 39000)
-	{
-		nSubsidy = COIN * 1;
 	}
 	else
 	{
