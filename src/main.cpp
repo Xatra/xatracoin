@@ -1111,11 +1111,19 @@ int64_t GetProofOfWorkReward(int64_t nPowHeight, int64_t nFees)
     {
     	nSubsidy = 7000000 * COIN; //Total premine coin
     }
-	else
+	else if (nPowHeight < 29000)
 	{
 		float reward = (100 - ceil(nPowHeight / 1440) * 6.6);
 		reward = reward < 5 ? 5 : reward;
     	nSubsidy = (reward * 10) * (COIN / 10);
+	}
+	else if (nPowHeight < 39000)
+	{
+		nSubsidy = COIN * 1;
+	}
+	else
+	{
+		nSubsidy = COIN * 0.5;
 	}
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfWorkReward() : create=%s nSubsidy=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
