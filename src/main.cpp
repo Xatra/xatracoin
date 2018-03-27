@@ -1111,7 +1111,7 @@ int64_t GetProofOfWorkReward(int64_t nTotalHeight, int64_t nFees)
     {
     	nSubsidy = 7000000 * COIN; //Total premine coin
     }
-	else if (nTotalHeight < 41800)
+	else if (nTotalHeight < 44100)
 	{
 		float reward = (100 - ceil(nTotalHeight / 1440) * 6.6);
 		reward = reward < 5 ? 5 : reward;
@@ -1819,7 +1819,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
     if (IsProofOfWork())
     {
 		int precisionFix = GetPowHeight(pindex) > 9000 ? 0 : 2000;
-        int64_t nReward = GetProofOfWorkReward(GetPowHeight(pindex), nFees) + precisionFix;
+        int64_t nReward = GetProofOfWorkReward(pindex->nHeight, nFees) + precisionFix;
         // Check coinbase reward
         if (vtx[0].GetValueOut() > nReward)
             return DoS(50, error("ConnectBlock() : coinbase reward exceeded (actual=%"PRId64" vs calculated=%"PRId64")",
