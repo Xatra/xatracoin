@@ -5,12 +5,12 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 3.0.0.0
-!define COMPANY "XatraCoin project"
-!define URL http://Xatracoin.io
+!define VERSION 1.0.0.0
+!define COMPANY "XatraCoin"
+!define URL https://xatracoin.io
 
 # MUI Symbol Definitions
-!define MUI_ICON "..\share\pixmaps\Xatracoin.ico"
+!define MUI_ICON "..\share\pixmaps\xatracoin.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\share\pixmaps\nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
@@ -21,7 +21,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER XatraCoin
 !define MUI_FINISHPAGE_RUN $INSTDIR\Xatracoin-qt.exe
-!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
+!define MUI_UNICON "..\share\pixmaps\xatracoin.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "..\share\pixmaps\nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
