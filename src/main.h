@@ -33,7 +33,7 @@ class CTxMemPool;
 #include "constants.h"
 
 
-static const int LAST_POW_BLOCK = 207360; // 12815;
+static const int LAST_POW_BLOCK = 83800; // 207360;
 
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
