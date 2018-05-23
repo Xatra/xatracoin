@@ -44,8 +44,8 @@ CBigNum bnProofOfStakeLimit(~uint256(0) >> 20);
 CBigNum bnProofOfStakeLimitV2(~uint256(0) >> 48);
 CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 1);
 
-unsigned int nStakeMinAge = 24 * 60 * 60 * 15; // 15 Days
-unsigned int nStakeMaxAge = 24 * 60 * 60 * 90; // 90 Days
+unsigned int nStakeMinAge = 24 * 60 * 60 * 1; // 24 * 60 * 60 * 15; // 15 Days
+unsigned int nStakeMaxAge = -1; // 24 * 60 * 60 * 90; // 90 Days
 unsigned int nModifierInterval = 10 * 60; // time to elapse before new modifier is computed
 
 unsigned int  POS_v3_DIFFICULTY_HEIGHT = 100000;
